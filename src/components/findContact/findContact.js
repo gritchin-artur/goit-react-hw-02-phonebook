@@ -1,27 +1,15 @@
-import React from 'react';
-import propTypes from 'prop-types';
-import { Field } from 'formik';
-import 'styles/shared.scss';
+import React from "react";
+import propTypes from "prop-types";
+import { Field } from "formik";
 
-class FindContact extends React.Component {
-  //listener of input
-  filterValue = e => {
-    let value = e.currentTarget.value.toUpperCase();
-    this.props.findContact(value);
-  };
-
-  render() {
-    return (
-      <div>
-        <h4>Find contacts by name</h4>
-        <Field
-          name='name'
-          onChange={this.filterValue}
-        ></Field>
-      </div>
-    );
-  }
-}
+const FindContact = ({ findContact }) => {
+  return (
+    <div>
+      <h4>Find contacts by name</h4>
+      <Field name="name" onChange={findContact}></Field>
+    </div>
+  );
+};
 
 FindContact.propTypes = {
   findContact: propTypes.func.isRequired,
